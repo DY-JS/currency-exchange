@@ -12,7 +12,9 @@ const StyledSelect = styled.select`
   margin-left: 10px;
 
   @media (max-width: 568px) {
-    width: 80%;
+    width: 45%;
+    align-self: center;
+    margin-left: 0;
   }
 
   option {

@@ -19,6 +19,10 @@ const StyledInput = styled.input`
     @media (max-width: 768px) {
       width: 100%;
     }
+
+    @media (max-width: 568px) {
+      width: 45%;
+    }
   }
 `;
 

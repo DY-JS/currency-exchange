@@ -14,7 +14,9 @@ const StyledDiv = styled.div`
   @media (max-width: 568px) {
     display: flex;
     flex-direction: column;
-    width: 80%;
+    align-items: center;
+    margin-bottom: 30px;
+    width: 90%;
   }
 `;
 
