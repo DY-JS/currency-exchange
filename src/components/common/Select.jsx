@@ -11,6 +11,10 @@ const StyledSelect = styled.select`
   border-radius: 3px;
   margin-left: 10px;
 
+  @media (max-width: 568px) {
+    width: 80%;
+  }
+
   option {
     color: black;
     background: white;

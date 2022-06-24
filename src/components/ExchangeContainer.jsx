@@ -9,7 +9,10 @@ const Container = styled.div`
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
-  height: 35px;
+
+  @media (max-width: 450px) {
+    flex-direction: column;
+  }
 `;
 
 const ExchangeContainer = () => {

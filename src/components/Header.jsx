@@ -10,6 +10,10 @@ const HeaderContainer = styled.div`
   width: 70%;
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: 290px) {
+    flex-direction: column;
+  }
 `;
 
 const CurrencyInfo = styled.div`

@@ -5,9 +5,17 @@ import Select from "./common/Select";
 import Input from "./common/Input";
 
 const StyledDiv = styled.div`
-  width: 40%;
-  height: 35px;
+  width: 100%;
   padding: 0 10px;
+
+  @media (max-width: 768px) {
+  }
+
+  @media (max-width: 568px) {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+  }
 `;
 
 const CurrencyContainer = ({

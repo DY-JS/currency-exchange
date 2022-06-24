@@ -15,6 +15,10 @@ const StyledInput = styled.input`
   font-size: 14px;
   ::placeholder {
     font-size: 12px;
+
+    @media (max-width: 768px) {
+      width: 100%;
+    }
   }
 `;
 
@@ -49,7 +53,7 @@ const Input = ({
       name={name}
       anotherInput={anotherInput}
       type='text'
-      placeholder='Type amount of currency'
+      placeholder='Type amount'
       value={value}
       onChange={handleInputChange}
     />
