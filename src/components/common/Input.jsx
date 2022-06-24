@@ -30,16 +30,18 @@ const Input = ({
   const handleInputChange = (event) => {
     event.persist();
     const { name, value, anotherInput } = event.currentTarget;
-    console.log(anotherInput);
-    updateValue((values) => ({
-      ...values,
-      [name]: value,
-      [name === "value2" ? "value1" : "value2"]: exchange(
-        rates[selected],
-        rates[additionalSelected],
-        value
-      ),
-    }));
+    const numberValue = value.replace(/[^\d]/g, "");
+    if (typeof Number(value) === "number") {
+      updateValue((values) => ({
+        ...values,
+        [name]: numberValue,
+        [name === "value2" ? "value1" : "value2"]: exchange(
+          rates[selected],
+          rates[additionalSelected],
+          numberValue
+        ),
+      }));
+    }
   };
 
   return (

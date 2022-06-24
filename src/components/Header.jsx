@@ -15,6 +15,7 @@ const HeaderContainer = styled.div`
 const CurrencyInfo = styled.div`
   width: 40%;
   display: flex;
+  align-items: center;
   flex-direction: column;
 `;
 
