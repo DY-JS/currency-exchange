@@ -4,7 +4,7 @@ import { getInitialData } from "../helpers/common";
 export const ConverterContext = createContext();
 
 export const ConverterProvider = ({ children }) => {
-  const currancies = ["USD", "EUR", "UAH"];
+  const currancies = useMemo(() => ["USD", "EUR", "UAH"], []);
 
   const initialData = getInitialData(currancies);
   const [isLoading, setIsLoading] = useState(false);

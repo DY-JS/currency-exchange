@@ -1,5 +1,3 @@
-import React, { useCallback } from "react";
-
 export const getInitialData = (data) => {
   return (
     data?.length &&
