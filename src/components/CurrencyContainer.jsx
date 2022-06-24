@@ -53,6 +53,7 @@ const CurrencyContainer = ({
         name={selectName}
         currancies={currancies}
         error={error}
+        selected={selected}
         updateSelected={setSelectedCurrancies}
       />
     </StyledDiv>

@@ -27,7 +27,8 @@ const StyledButton = styled.button`
 `;
 
 const Button = () => {
-  const { setSelectedCurrancies, setValues } = useContext(ConverterContext);
+  const { setSelectedCurrancies, setValues, clear, setClear } =
+    useContext(ConverterContext);
 
   const clearState = () => {
     setValues((current) => ({
@@ -40,6 +41,7 @@ const Button = () => {
       selected1: "USD",
       selected2: "USD",
     }));
+    setClear(true);
   };
 
   return <StyledButton onClick={clearState}>CLEAR FIELDS</StyledButton>;

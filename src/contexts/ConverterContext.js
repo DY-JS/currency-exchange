@@ -19,6 +19,8 @@ export const ConverterProvider = ({ children }) => {
     selected2: "USD",
   });
 
+  const [clear, setClear] = useState(false);
+
   const value = useMemo(
     () => ({
       isLoading,
@@ -31,6 +33,8 @@ export const ConverterProvider = ({ children }) => {
       setValues,
       initialData,
       currancies,
+      clear,
+      setClear,
     }),
     [
       isLoading,
@@ -40,6 +44,7 @@ export const ConverterProvider = ({ children }) => {
       selectedCurrancies,
       currancies,
       initialData,
+      clear,
     ]
   );
 

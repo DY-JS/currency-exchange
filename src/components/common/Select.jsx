@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+
+import { ConverterContext } from "../../contexts/ConverterContext";
 
 const StyledSelect = styled.select`
   width: 42%;
@@ -28,31 +30,37 @@ const StyledSelect = styled.select`
 `;
 
 const Select = ({ name, currancies, error, selected, updateSelected }) => {
+  const { clear, setClear } = useContext(ConverterContext);
+
   const handleSelectChange = (event) => {
     event.persist();
     const { name, value } = event.currentTarget;
     updateSelected((current) => ({ ...current, [name]: value }));
   };
 
+  const handleClick = () => {
+    setClear(false);
+  };
+
   return (
     <StyledSelect
       name={name}
       onChange={handleSelectChange}
+      onClick={handleClick}
       defaultValue={selected}
     >
       <option value='' hidden disabled>
         CHOOSE CURRENCY
       </option>
-      {currancies?.map((currancy) => (
-        <option
-          key={currancy}
-          value={currancy}
-          //selected={currancy === "USD"}
-          disabled={error}
-        >
-          {currancy}
-        </option>
-      ))}
+      {clear ? (
+        <option value={selected}>{selected}</option>
+      ) : (
+        currancies?.map((currancy) => (
+          <option key={currancy} value={currancy} disabled={error}>
+            {currancy}
+          </option>
+        ))
+      )}
     </StyledSelect>
   );
 };
