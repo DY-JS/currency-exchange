@@ -1,4 +1,4 @@
-import { createContext, useState, useMemo, useCallback } from "react";
+import { createContext, useState, useMemo } from "react";
 import { getInitialData } from "../helpers/common";
 
 export const ConverterContext = createContext();

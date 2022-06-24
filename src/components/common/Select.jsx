@@ -9,12 +9,13 @@ const StyledSelect = styled.select`
   background: #c7d2fe;
   color: #111827;
   padding: 0 5px;
+  padding-left: 10px;
   border: none;
   border-radius: 3px;
   margin-left: 10px;
 
   @media (max-width: 568px) {
-    width: 45%;
+    width: 59%;
     align-self: center;
     margin-left: 0;
   }
@@ -31,7 +32,7 @@ const StyledSelect = styled.select`
 
 const Select = ({ name, currancies, error, selected, updateSelected }) => {
   const { clear, setClear } = useContext(ConverterContext);
-
+  //clear - состояние после очистки полей
   const handleSelectChange = (event) => {
     event.persist();
     const { name, value } = event.currentTarget;
@@ -52,9 +53,10 @@ const Select = ({ name, currancies, error, selected, updateSelected }) => {
       <option value='' hidden disabled>
         CHOOSE CURRENCY
       </option>
-      {clear ? (
+      {clear ? ( //чтобы в селекте - пока не кликнули - первым был USD, а не из прошлого выбора
         <option value={selected}>{selected}</option>
       ) : (
+        //когда кликнут по селекту появится всё меню
         currancies?.map((currancy) => (
           <option key={currancy} value={currancy} disabled={error}>
             {currancy}

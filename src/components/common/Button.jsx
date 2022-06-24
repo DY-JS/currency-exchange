@@ -27,7 +27,7 @@ const StyledButton = styled.button`
 `;
 
 const Button = () => {
-  const { setSelectedCurrancies, setValues, clear, setClear } =
+  const { setSelectedCurrancies, setValues, setClear } =
     useContext(ConverterContext);
 
   const clearState = () => {

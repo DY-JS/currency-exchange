@@ -8,9 +8,6 @@ const StyledDiv = styled.div`
   width: 100%;
   padding: 0 10px;
 
-  @media (max-width: 768px) {
-  }
-
   @media (max-width: 568px) {
     display: flex;
     flex-direction: column;

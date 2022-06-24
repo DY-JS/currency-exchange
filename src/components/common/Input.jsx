@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo } from "react";
+import React from "react";
 import styled from "styled-components";
 
 import { exchange } from "../../helpers/common";
@@ -15,14 +15,11 @@ const StyledInput = styled.input`
   font-size: 14px;
   ::placeholder {
     font-size: 12px;
+  }
 
-    @media (max-width: 768px) {
-      width: 100%;
-    }
-
-    @media (max-width: 568px) {
-      width: 45%;
-    }
+  @media (max-width: 568px) {
+    width: 55%;
+    margin-bottom: 10px;
   }
 `;
 
