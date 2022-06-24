@@ -29,12 +29,11 @@ export default function Header() {
       fetchData();
       console.log(currancyRates);
     } catch (e) {
-      throw new Error("e");
+      throw new Error("Error");
     } finally {
       setIsLoading((current) => false);
     }
   }, []);
-  //console.log(currancyRates);
 
   if (isLoading) return <p>Loading...</p>;
 
@@ -42,10 +41,6 @@ export default function Header() {
     <div>
       <p>{currancyRates["USD"]}</p>
       <p>{currancyRates["EUR"]}</p>
-
-      {/* {[...Object.values(a)].map((e) => (
-        <p>{e}</p>
-      ))} */}
     </div>
   );
 }

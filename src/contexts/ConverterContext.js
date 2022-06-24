@@ -19,17 +19,6 @@ export const ConverterProvider = ({ children }) => {
     selected2: "USD",
   });
 
-  const clearState = useCallback(() => {
-    setValues({
-      value1: "",
-      value2: "",
-    });
-    setSelectedCurrancies({
-      selected1: "USD",
-      selected2: "USD",
-    });
-  }, []);
-
   const value = useMemo(
     () => ({
       isLoading,
@@ -42,7 +31,6 @@ export const ConverterProvider = ({ children }) => {
       setValues,
       initialData,
       currancies,
-      clearState,
     }),
     [
       isLoading,

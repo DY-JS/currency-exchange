@@ -22,34 +22,27 @@ const Input = ({
   rates,
   selected,
   additionalSelected,
-  upDateValue,
+  updateValue,
 }) => {
-  const anotherSelected = useMemo(() => additionalSelected, []);
-
-  const M = useCallback((a, b, c) => {
-    return (Number(a) / Number(b)) * Number(c) || 0;
+  const exchange = useCallback((a, b, c) => {
+    return (Number(a) / Number(b)) * Number(c);
   }, []);
 
   const handleInputChange = (event) => {
     event.persist();
     const { name, value, anotherInput } = event.currentTarget;
     console.log(anotherInput);
-    upDateValue((values) => ({
+    updateValue((values) => ({
       ...values,
       [name]: value,
-      [name === "value1" ? "value2" : "value1"]: M(
+      [name === "value2" ? "value1" : "value2"]: exchange(
         rates[selected],
-        rates[anotherSelected],
+        rates[additionalSelected],
         value
       ),
     }));
   };
 
-  //console.log(selected);
-  console.log(anotherSelected);
-  // console.log(value);
-  // console.log(Number(rates[selected]) / Number(rates[additionalSelected]));
-  // console.log(anotherInput);
   return (
     <StyledInput
       name={name}
