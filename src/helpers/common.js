@@ -19,5 +19,5 @@ export const writeDataFromApi = (data, currancies) => {
 };
 
 export const exchange = (a, b, c) => {
-  return (Number(a) / Number(b)) * Number(c);
+  return +((Number(a) / Number(b)) * Number(c)).toFixed(4);
 };
