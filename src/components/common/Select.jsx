@@ -38,7 +38,7 @@ const Select = ({ name, currancies, error, selected, updateSelected }) => {
       onChange={handleSelectChange}
       defaultValue={selected}
     >
-      <option value='' hidden>
+      <option value='' hidden disabled>
         CHOOSE CURRENCY
       </option>
       {currancies?.map((currancy) => (
