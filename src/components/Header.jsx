@@ -36,9 +36,6 @@ export default function Header() {
     setIsLoading,
     currancyRates,
     setCurrancyRate,
-    values,
-    setValues,
-    initialData,
     currancies,
   } = useContext(ConverterContext);
 
