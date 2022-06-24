@@ -1,3 +1,5 @@
+import React, { useCallback } from "react";
+
 export const getInitialData = (data) => {
   return (
     data?.length &&
@@ -16,4 +18,8 @@ export const writeDataFromApi = (data, currancies) => {
     }
   });
   return newData;
+};
+
+export const exchange = (a, b, c) => {
+  return (Number(a) / Number(b)) * Number(c);
 };

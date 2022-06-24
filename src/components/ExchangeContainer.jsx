@@ -6,6 +6,7 @@ import CurrencyContainer from "./CurrencyContainer";
 
 const Container = styled.div`
   width: 90%;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   height: 35px;
@@ -27,7 +28,6 @@ const ExchangeContainer = () => {
         input='value1'
         anotherInput='value2'
         selectName='selected1'
-        values={values}
         rates={currancyRates}
         value={values.value1}
         setValue={setValues}

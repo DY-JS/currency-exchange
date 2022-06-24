@@ -19,6 +19,11 @@ const StyledButton = styled.button`
   :focus {
     box-shadow: inset 2px 2px 1px rgba(0, 0, 0, 0.3);
   }
+
+  &:hover {
+    color: #fff;
+    background: #2884f6;
+  }
 `;
 
 const Button = () => {

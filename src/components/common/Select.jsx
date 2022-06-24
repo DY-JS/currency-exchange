@@ -29,7 +29,11 @@ const Select = ({ name, currancies, error, selected, updateSelected }) => {
   };
 
   return (
-    <StyledSelect name={name} onChange={handleSelectChange}>
+    <StyledSelect
+      name={name}
+      onChange={handleSelectChange}
+      defaultValue={selected}
+    >
       <option value='' hidden>
         CHOOSE CURRENCY
       </option>
@@ -37,7 +41,7 @@ const Select = ({ name, currancies, error, selected, updateSelected }) => {
         <option
           key={currancy}
           value={currancy}
-          selected={currancy === "USD"}
+          //selected={currancy === "USD"}
           disabled={error}
         >
           {currancy}

@@ -14,7 +14,6 @@ const CurrencyContainer = ({
   input,
   anotherInput,
   selectName,
-  values,
   rates,
   value,
   setValue,
@@ -28,7 +27,7 @@ const CurrencyContainer = ({
   useEffect(() => {
     setError(String(value).length > 0);
   }, [value]);
-  console.log(rates);
+
   return (
     <StyledDiv>
       <Input

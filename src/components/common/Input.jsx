@@ -1,10 +1,13 @@
 import React, { useCallback, useMemo } from "react";
 import styled from "styled-components";
 
+import { exchange } from "../../helpers/common";
+
 const StyledInput = styled.input`
   width: 40%;
   height: 35px;
   margin: 10px;
+  padding-left: 10px;
   background: #c7d2fe;
   color: #111827;
   border: none;
@@ -24,10 +27,6 @@ const Input = ({
   additionalSelected,
   updateValue,
 }) => {
-  const exchange = useCallback((a, b, c) => {
-    return (Number(a) / Number(b)) * Number(c);
-  }, []);
-
   const handleInputChange = (event) => {
     event.persist();
     const { name, value, anotherInput } = event.currentTarget;
