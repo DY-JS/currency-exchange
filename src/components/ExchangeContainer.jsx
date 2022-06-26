@@ -41,7 +41,7 @@ const ExchangeContainer = () => {
       />
       <CurrencyContainer
         input='value2'
-        anotherInput='value2'
+        anotherInput='value1'
         selectName='selected2'
         rates={currancyRates}
         value={values.value2}
