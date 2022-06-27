@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import { ConverterContext } from "../contexts/ConverterContext";
 import { getCurrencyRates, CURRENCY_URL } from "../helpers/api";
-import { writeDataFromApi, getInitialData } from "../helpers/common";
+import { writeDataFromApi } from "../helpers/common";
 
 const HeaderContainer = styled.div`
   margin: 50px auto;
@@ -30,6 +30,14 @@ const Title = styled.p`
   font-weight: bold;
 `;
 
+const LoadingInfo = styled.h1`
+  width: 30%;
+  margin: 50px auto;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+`;
+
 export default function Header() {
   const {
     isLoading,
@@ -37,39 +45,40 @@ export default function Header() {
     currancyRates,
     setCurrancyRate,
     currancies,
+    errorLoading,
+    setErrorLoading,
   } = useContext(ConverterContext);
 
   useEffect(() => {
-    async function fetchData() {
-      setIsLoading((current) => true);
-      const response = await getCurrencyRates(CURRENCY_URL);
-      setCurrancyRate((current) => writeDataFromApi(response, currancies));
-      return response;
-    }
-
-    try {
-      setIsLoading((current) => true);
-      fetchData();
-      console.log(currancyRates);
-    } catch (e) {
-      throw new Error("Error");
-    } finally {
-      setIsLoading((current) => false);
-    }
+    setIsLoading(true);
+    getCurrencyRates(CURRENCY_URL)
+      .then((data) => {
+        setCurrancyRate((current) => writeDataFromApi(data, currancies));
+        data && setIsLoading(false);
+      })
+      .catch((error) => {
+        setIsLoading(false);
+        setErrorLoading(true);
+      });
   }, []);
 
-  if (isLoading) return <p>Loading...</p>;
-
+  if (errorLoading) return <LoadingInfo>LOADING ERROR</LoadingInfo>;
   return (
     <HeaderContainer>
-      <CurrencyInfo>
-        <Title>USD</Title>
-        <Title>{currancyRates["USD"]}</Title>
-      </CurrencyInfo>
-      <CurrencyInfo>
-        <Title>EUR</Title>
-        <Title>{currancyRates["EUR"]}</Title>
-      </CurrencyInfo>
+      {isLoading ? (
+        <LoadingInfo>Loading...</LoadingInfo>
+      ) : (
+        <>
+          <CurrencyInfo>
+            <Title>USD</Title>
+            <Title>{currancyRates["USD"]}</Title>
+          </CurrencyInfo>
+          <CurrencyInfo>
+            <Title>EUR</Title>
+            <Title>{currancyRates["EUR"]}</Title>
+          </CurrencyInfo>
+        </>
+      )}
     </HeaderContainer>
   );
 }

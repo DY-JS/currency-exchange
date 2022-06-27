@@ -8,6 +8,7 @@ export const ConverterProvider = ({ children }) => {
 
   const initialData = getInitialData(currancies);
   const [isLoading, setIsLoading] = useState(false);
+  const [errorLoading, setErrorLoading] = useState(false);
 
   const [currancyRates, setCurrancyRate] = useState("");
   const [values, setValues] = useState({
@@ -35,6 +36,8 @@ export const ConverterProvider = ({ children }) => {
       currancies,
       clear,
       setClear,
+      errorLoading,
+      setErrorLoading,
     }),
     [
       isLoading,
@@ -45,6 +48,7 @@ export const ConverterProvider = ({ children }) => {
       currancies,
       initialData,
       clear,
+      errorLoading,
     ]
   );
 
